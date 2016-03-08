@@ -7,7 +7,8 @@
 
 TODO
 
+DOING
+
 DONE
 - add button to navigate to a random wikipedia page
-
-DOING
+- implement wikipedia api call
