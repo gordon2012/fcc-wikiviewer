@@ -6,10 +6,17 @@ $('#query').keypress( (e) => {
 });
 
 
+$('#close').on('click', () => {
+  $('.my-new-list').remove();
+  $('#results').addClass('invis');
+});
+
+
 $('#search').on('click', () => {
   const query = $('#query').val();
 
   $('#query').val('');
+  $('#results').addClass('invis');
 
   if(query != '') {
     $('.my-new-list').remove();
@@ -29,13 +36,13 @@ $('#search').on('click', () => {
         let items = [];
         $.each(data.query.search, (key, val) => {
           const link = '<a href="http://en.wikipedia.org/wiki/' + val.title.replace(new RegExp(' ', 'g'), '_') + '" target="_blank">' + val.title + '</a>';
-          items.push('<li class="green"><h4>' + key + ': ' + link + '</h4><p>'+ val.snippet +'</p></li>');
+          items.push('<li><h4>' + link + '</h4><p>'+ val.snippet +'</p></li>');
         });
         $("<ul/>", {
           "class": "my-new-list",
           html: items.join("")
         }).appendTo(".well");
-        console.log(data);
+        $('#results').removeClass('invis');
       }
     });
   }

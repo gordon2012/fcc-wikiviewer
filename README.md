@@ -1,4 +1,4 @@
-### wikiviewer
+### Wikipedia Search
 
 #### A Wikipedia Viewer by Gordon Doskas
 
@@ -16,3 +16,4 @@ DONE
 - add links to articles
 - clear input on search
 - prevent blank searches
+- fix styling
