@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {AppContainer} from './components/App';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import {Provider} from 'react-redux';
-
-import './sass/style.sass';
 
 import reducer from './reducer';
 import {setState} from './action_creators';
+import {AppContainer} from './components/App';
+import './sass/style.sass';
 
-const store = createStore(reducer);
+
+let middleware = [thunk];
+if(process.env.NODE_ENV === 'development') middleware.push(logger());
+
+const store = createStore(
+  reducer,
+  applyMiddleware(...middleware)
+);
+
 store.dispatch(setState({count: 4}));
 
 ReactDOM.render(
