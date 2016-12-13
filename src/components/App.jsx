@@ -10,7 +10,7 @@ export default class App extends Component {
           <h1>Wikipedia Viewer</h1>
         </header>
         <div className="content">
-          <div className="secret-sauce">
+          <div className="wikiviewer">
             <button onClick={this.props.fetchArticle}>Random</button>
             <input type="text" />
             <button>Search</button>
@@ -18,11 +18,6 @@ export default class App extends Component {
             { this.props.results && this.props.results.map( (e, i) =>
                 <article key={i}><p><strong>{e.title}: </strong>{e.text}</p></article>
             )}
-
-            <br />
-            <button onClick={this.props.decrement}><h1>-</h1></button>
-            <span><h1>{this.props.count}</h1></span>
-            <button onClick={this.props.increment}><h1>+</h1></button>
 
             {process.env.NODE_ENV === 'development' && <div>
               <hr /><pre><code>{JSON.stringify(this.props, null, 2)}</code></pre>
