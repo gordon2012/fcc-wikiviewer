@@ -10,7 +10,6 @@ import {setState} from './action_creators';
 import {AppContainer} from './components/App';
 import './sass/style.sass';
 
-
 let middleware = [thunk];
 if(process.env.NODE_ENV === 'development') middleware.push(logger());
 
