@@ -11,9 +11,9 @@ export default class App extends Component {
         </header>
         <div className="content">
           <div className="wikiviewer">
-            <button onClick={this.props.fetchArticle}>Random</button>
+            <button onClick={e => { window.open('https://en.wikipedia.org/wiki/Special:Random', '_blank'); }}>Random</button>
             <input type="text" />
-            <button>Search</button>
+            <button onClick={this.props.fetchArticle}>Search</button>
 
             { this.props.results && this.props.results.map( (e, i) =>
                 <article key={i}><p><strong>{e.title}: </strong>{e.text}</p></article>
