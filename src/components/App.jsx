@@ -9,6 +9,14 @@ export default class App extends Component {
 
     const search = this.searchinput.value.trim();
     if(search) this.props.fetchArticle(search);
+
+    this.searchinput.value = "";
+  }
+
+  handleKeyDown(e) {
+    if(e.keyCode === 13) {
+      this.handleSearch(e);
+    }
   }
 
   render() {
@@ -32,7 +40,7 @@ export default class App extends Component {
         <div className="content">
           <div className="wikiviewer">
             <button onClick={e => { window.open('https://en.wikipedia.org/wiki/Special:Random', '_blank'); }}>Random</button>
-            <input type="text" ref={(c) => this.searchinput = c} />
+            <input type="text" onKeyDown={e => {this.handleKeyDown(e);}} ref={(c) => this.searchinput = c} />
             <button onClick={this.handleSearch.bind(this)}>Search</button>
             {searchNode}
 
