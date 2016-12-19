@@ -30,9 +30,12 @@ export default class App extends Component {
       </header>
       <div className="content">
         <div className="wikiviewer">
-          <button onClick={e => { window.open('https://en.wikipedia.org/wiki/Special:Random', '_blank'); }}>Random</button>
-          <input type="text" onKeyDown={e => {this.handleKeyDown(e);}} ref={(c) => this.searchinput = c} />
-          <button onClick={this.handleSearch.bind(this)}>Search</button>
+
+          <div className="menu">
+            <button onClick={e => { window.open('https://en.wikipedia.org/wiki/Special:Random', '_blank'); }}>Random</button>
+            <input type="text" onKeyDown={e => {this.handleKeyDown(e);}} ref={(c) => this.searchinput = c} />
+            <button onClick={this.handleSearch.bind(this)}>Search</button>
+          </div>
 
           {loading ? <p>Loading...</p> : search ?
             results && results.length > 0 ?
