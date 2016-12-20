@@ -28,9 +28,8 @@ export default class App extends Component {
       <header>
         <h1>Wikipedia Viewer</h1>
       </header>
-      <div className="content">
-        <div className="wikiviewer">
-
+      <div className="content-wrap">
+        <div className="content">
           <div className="menu">
             <button onClick={e => { window.open('https://en.wikipedia.org/wiki/Special:Random', '_blank'); }}>Random</button>
             <input type="text" onKeyDown={e => {this.handleKeyDown(e);}} ref={(c) => this.searchinput = c} />

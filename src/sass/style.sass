@@ -45,11 +45,15 @@ h1
     min-height: 100vh
     flex-direction: column
 
-.content
-    background: white
+.content-wrap
+    background: $blue-200
     flex: 1
-    max-width: calc(#{$break-laptop} - 32px)
-    margin: 0 auto
+    display: flex
+    justify-content: center
+
+.content
+    background: $blue-100
+    flex-basis: calc(#{$break-laptop} - 32px)
     padding: 16px
 
 footer
@@ -71,6 +75,7 @@ button
     font-weight: 600
     background: $blue-500
     color: white
+    cursor: pointer
 
 input
     border: 1px solid black
@@ -92,7 +97,7 @@ article
     box-shadow: none
     &:hover
         border-left: 4px solid $blue-500
-        background: $blue-100
+        background: white
         cursor: pointer
     p
         margin: 0
