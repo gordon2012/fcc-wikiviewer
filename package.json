@@ -59,8 +59,10 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "deploy": "npm run build && gh-pages -d build",
+    "build:stage": "node scripts/build.stage.js",
+    "build:prod": "node scripts/build.prod.js",
+    "deploy:stage": "npm run build:stage && gh-pages -d build",
+    "deploy:prod": "npm run build:prod && surge build wikiviewer.gordondoskas.com",
     "cors": "node scripts/cors-anywhere/server.js"
   },
   "jest": {
