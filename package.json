@@ -61,8 +61,8 @@
     "start": "node scripts/start.js",
     "build:stage": "node scripts/build.stage.js",
     "build:prod": "node scripts/build.prod.js",
-    "deploy:stage": "npm run build:stage && gh-pages -d build",
-    "deploy:prod": "npm run build:prod && surge build wikiviewer.gordondoskas.com",
+    "deploy:stage": "npm run build:prod && surge build wikiviewer.gurudreams.win",
+    "deploy:prod": "npm run build:stage && scp -r build/* hg:/home1/gordon2012/src/wikiviewer",
     "cors": "node scripts/cors-anywhere/server.js"
   },
   "jest": {
@@ -89,5 +89,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "http://gordon2012.github.io/wikiviewer"
+  "homepage": "http://gordondoskas.com/wikiviewer"
 }
